@@ -41,7 +41,7 @@ module.exports = function (poppins) {
           });
 
       if (issues) {
-        var filteredIssues = issues.filter(plugins.prioritize);
+        var filteredIssues = issues.filter(plugins.prioritize.criteria);
 
         var sortedIssues = filteredIssues.sort(function (a, b) {
           return a.vote > b.vote ? -1 : a.vote < b.vote ? 1 : 0;
