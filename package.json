@@ -1,0 +1,25 @@
+{
+  "name": "poppins-prioritize",
+  "version": "0.0.1",
+  "description": "mary-poppins plugin for checking whether a user has signed the CLA or not",
+  "main": "plugin.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/btford/poppins-prioritize.git"
+  },
+  "keywords": [
+    "mary-poppins",
+    "poppins"
+  ],
+  "author": "Brian Ford",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/btford/poppins-prioritize/issues"
+  },
+  "dependencies": {
+    "escape-html": "~1.0.1"
+  }
+}
