@@ -1,7 +1,7 @@
 {
   "name": "poppins-prioritize",
   "version": "0.0.1",
-  "description": "mary-poppins plugin for checking whether a user has signed the CLA or not",
+  "description": "A Mary Poppins plugin for prioritizing issues based on labels",
   "main": "plugin.js",
   "scripts": {
     "test": "mocha tests"
@@ -12,7 +12,8 @@
   },
   "keywords": [
     "mary-poppins",
-    "poppins"
+    "poppins",
+    "post-structuralism"
   ],
   "author": "Brian Ford",
   "license": "MIT",
