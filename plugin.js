@@ -25,7 +25,7 @@ module.exports = function (poppins) {
       return issue.state === 'open' && !issue.milestone;
     },
 
-    calculate: function (issue) {
+    calculate: function pain (issue) {
       return Object.keys(plugins.prioritize.weight).reduce(function (product, possibleLabel) {
         return product *
                 ((issue.labels.some(function (label) {
@@ -43,15 +43,20 @@ module.exports = function (poppins) {
       if (issues) {
         var filteredIssues = issues.filter(plugins.prioritize.criteria);
 
-        var sortedIssues = filteredIssues.sort(function (a, b) {
-          return a.vote > b.vote ? -1 : a.vote < b.vote ? 1 : 0;
+        var painfulIssues = filteredIssues.map(function (issue) {
+          issue.pain = plugins.prioritize.calculate(issue);
+          return issue;
+        });
+
+        var sortedIssues = painfulIssues.sort(function (a, b) {
+          return a.pain > b.pain ? -1 : a.pain < b.pain ? 1 : 0;
         });
         links = sortedIssues.map(plugins.prioritize.linkifyIssue);
       } else {
         links = [];
       }
       res.send(plugins.prioritize.header +
-        (links.length > 0 ? ('<ul>' + links.join('\n') + '</ul>') : 'There are no issues with votes') +
+        (links.length > 0 ? ('<ul>' + links.join('\n') + '</ul>') : 'There are no untriaged issues') +
         plugins.prioritize.footer);
     },
 
@@ -62,7 +67,7 @@ module.exports = function (poppins) {
               issue.number + '">#' +
               issue.number + ' ' +
               escape(issue.title) + ' (' +
-              issue.vote + ')</a></li>';
+              issue.pain + ')</a></li>';
 
     },
 
