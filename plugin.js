@@ -22,7 +22,7 @@ module.exports = function (poppins) {
 
     // open issues with no milestone
     criteria: function (issue) {
-      return issue.state === 'open' && !issue.milestone;
+      return issue.state === 'open' && issue.milestone;
     },
 
     calculate: function pain (issue) {
