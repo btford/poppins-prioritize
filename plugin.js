@@ -30,7 +30,7 @@ module.exports = function (poppins) {
         return product *
                 ((issue.labels.some(function (label) {
                   return label.name === possibleLabel;
-                }) * plugins.prioritize[possibleLabel]) || 1);
+                }) * plugins.prioritize.weight[possibleLabel]) || 1);
       }, 1);
     },
 
