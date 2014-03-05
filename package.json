@@ -1,6 +1,6 @@
 {
   "name": "poppins-prioritize",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Mary Poppins plugin for prioritizing issues based on labels",
   "main": "plugin.js",
   "scripts": {
