@@ -67,8 +67,16 @@ module.exports = function (poppins) {
               issue.number + '">#' +
               issue.number + ' ' +
               escape(issue.title) + ' (' +
-              issue.pain + ')</a></li>';
+              issue.pain + ')</a> ' +
+              plugins.prioritize.tagifyIssue(issue) +
+              '</li>';
 
+    },
+
+    tagifyIssue: function (issue) {
+      return issue.labels.map(function (label) {
+        return '<span style="background-color: #' + label.color + '">' + label.name + '</span>';
+      }).join(' ');
     },
 
     header: fs.readFileSync(__dirname + '/templates/header.html', 'utf8'),
