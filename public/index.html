@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Issue Prioritization</title>
+  <link rel="stylesheet" href="bower_components/topcoat/css/topcoat-desktop-light.css">
+  <link rel="stylesheet" href="bower_components/topcoat/demo/css/main.css">
+</head>
+<body ng-app="prioritizeApp" ng-controller="MainController">
+
+  <header id="main-header">
+    <div class="max-width">
+      <hgroup>
+        <h1><a href="http://topcoat.io">poppins</a></h1>
+        <p>prioritized github issues</p>
+      </hgroup>
+    </div>
+  </header>
+
+  <div class="max-width">
+    <article>
+      <h2>stats</h2>
+      <pre>{{stats.pains}}</pre>
+      <h2>triaged issues ({{issues.length}})</h2>
+
+      <div ng-repeat="issue in issues">
+        <a href="https://github.com/angular/angular.js/issues/{{issue.number}}">
+          #{{issue.number}}: {{issue.title}} ({{issue.pain}})
+        </a>
+        <span ng-repeat="label in issue.labels"
+              ng-style="{backgroundColor: '#' + label.color}">{{label.name}}</span>
+      </div>
+    </article>
+  </div>
+
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
+

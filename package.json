@@ -21,6 +21,8 @@
     "url": "https://github.com/btford/poppins-prioritize/issues"
   },
   "dependencies": {
-    "escape-html": "~1.0.1"
+    "escape-html": "~1.0.1",
+    "express": "^3.4.8",
+    "color": "^0.5.0"
   }
 }
